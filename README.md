@@ -4,6 +4,6 @@ Chat application with integration to discord for webpages. mainly for my own bus
 all variables are controlled with .env
 
 required variables:
-TOKEN={discordbot token}
-THREADCHANNEL={Channel id that you want the bot to create threads in}
-MODEROLE={Moderator role to pick person from to add to the chat}
+`TOKEN={discordbot token}`
+`THREADCHANNEL={Channel id that you want the bot to create threads in}`
+`MODEROLE={Moderator role to pick person from to add to the chat}`
