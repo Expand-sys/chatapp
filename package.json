@@ -1,0 +1,28 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "website to chat app",
+  "main": "app.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Expand-sys/chatapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Expand-sys/chatapp/issues"
+  },
+  "homepage": "https://github.com/Expand-sys/chatapp#readme",
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "pug": "^3.0.2",
+    "randomcolor": "^0.6.2",
+    "socket.io": "^4.2.0",
+    "uuid": "^8.3.2"
+  }
+}
