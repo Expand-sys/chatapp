@@ -60,6 +60,7 @@
 }
 
 .message {
+  color: black;
   clear: both;
   float: left;
   padding: 6px 10px 7px;
@@ -68,7 +69,7 @@
   margin: 8px 0;
   font-size: 14px;
   line-height: 1.4;
-  margin-left: 35px;
+  margin-left: 5px;
   position: relative;
   border: 1px solid #ccc;
   /* text-shadow: 0 1px 1px rgb(0 0 0 / 20%); */

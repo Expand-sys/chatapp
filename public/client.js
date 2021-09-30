@@ -1,4 +1,10 @@
-var socket = io();
+var socket = io("", {
+  cors: {
+    origin: "https://example.com",
+    methods: ["GET", "POST"],
+  },
+  transports: ["polling"],
+});
 
 var messages = document.getElementById("messages");
 var form = document.getElementById("form");
@@ -25,10 +31,8 @@ form.addEventListener(
 socket.on("reply", function (msg) {
   var item = document.createElement("div");
   item.classList.add("message");
-  item.classList.add("messages-content");
   item.textContent = `EWEB: ${msg}`;
   messages.appendChild(item);
-  window.scrollTo(0, document.body.scrollHeight);
 });
 socket.on("chat message", function (msg) {
   var item = document.createElement("div");
@@ -36,5 +40,4 @@ socket.on("chat message", function (msg) {
   item.classList.add("message");
   item.textContent = `You: ${msg}`;
   messages.appendChild(item);
-  window.scrollTo(0, document.body.scrollHeight);
 });

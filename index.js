@@ -5,18 +5,17 @@ const http = require("http");
 const server = http.createServer(app);
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://ewebglobal.com.au",
+    origin: "https://example.com",
     methods: ["GET", "POST"],
   },
 });
 const { Client, Intents, Collection, ThreadManager } = require("discord.js");
 const dotenv = require("dotenv");
 const uuid = require("uuid");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 40091;
 const fs = require("fs");
 
 dotenv.config();
-app.use(express.static("public"));
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
@@ -72,10 +71,6 @@ client.once("ready", async () => {
       io.to(socket.id).emit("reply", m.content);
     });
   });
-});
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
 });
 
 server.listen(port, () => {

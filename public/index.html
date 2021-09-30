@@ -1,68 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Socket.IO chat</title>
-    <link rel="stylesheet" href="css.css" type="text/css" />
-  </head>
-  <body>
-    <section class="avenue-messenger">
-      <div class="chat">
-        <div class="chat-title">
-          <h1>EWEB Chat</h1>
-        </div>
-        <div class="messages">
-          <div id="messages" class="messages-content"></div>
-        </div>
-        <form id="form" class="message-box" action="">
-          <input
-            id="input"
-            type="text"
-            class="message-input"
-            placeholder="Type message..."
-          />
-          <button type="submit" class="message-submit">Send</button>
-          <!--<button class="message-submit">Send</button>-->
-        </form>
-      </div>
-    </section>
-    <script src="/socket.io/socket.io.js"></script>
-
-    <script>
-      var socket = io();
-
-      var messages = document.getElementById("messages");
-      var form = document.getElementById("form");
-      var input = document.getElementById("input");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (input.value) {
-          var item = document.createElement("div");
-          socket.emit("chat message", input.value);
-          item.classList.add("messages-content");
-          item.classList.add("message-personal");
-          item.textContent = `You: ${input.value}`;
-          messages.appendChild(item);
-          input.value = "";
-        }
-      });
-
-      socket.on("reply", function (msg) {
-        var item = document.createElement("div");
-        item.classList.add("message");
-        item.classList.add("messages-content");
-        item.textContent = `EWEB: ${msg}`;
-        messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-      socket.on("chat message", function (msg) {
-        var item = document.createElement("div");
-        item.classList.add("message-personal");
-        item.classList.add("messages-content");
-        item.textContent = `You: ${msg}`;
-        messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-    </script>
-  </body>
-</html>
+<section class="avenue-messenger">
+  <div class="chat">
+    <div class="chat-title">
+      <h3 style="color: black;">EWEB Chat</h3>
+    </div>
+    <div class="messages">
+      <div id="messages" class="messages-content"></div>
+    </div>
+    <form id="form" class="message-box" onsubmit="return false;">
+      <input
+        id="input"
+        type="text"
+        class="message-input"
+        placeholder="Type message..."
+      />
+      <button id="submit" type="submit" class="message-submit">Send</button>
+    </form>
+  </div>
+</section>
