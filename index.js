@@ -3,7 +3,12 @@ const app = express();
 
 const http = require("http");
 const server = http.createServer(app);
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "https://ewebglobal.com.au",
+    methods: ["GET", "POST"],
+  },
+});
 const { Client, Intents, Collection, ThreadManager } = require("discord.js");
 const dotenv = require("dotenv");
 const uuid = require("uuid");
